@@ -143,18 +143,6 @@ const LoadingManager = new THREE.LoadingManager(() => {
   setupAnimation();
 });
 
-const progressBar = document.getElementById("progress-bar");
-
-LoadingManager.onProgress = function (url, loaded, total) {
-  progressBar.value = (loaded / total) * 100;
-};
-
-const progressBarContainer = document.querySelector(".progress-bar-container");
-
-LoadingManager.onLoad = function () {
-  progressBarContainer.style.display = "none";
-};
-
 const gltfLoader = new GLTFLoader(LoadingManager);
 
 toLoad.forEach((item) => {
