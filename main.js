@@ -126,7 +126,6 @@ const desktopAnimation = () => {
       trigger: ".page1",
       start: "top top",
       end: "bottom bottom",
-      markers: true,
       scrub: 0.1,
     },
   });
@@ -144,17 +143,17 @@ const LoadingManager = new THREE.LoadingManager(() => {
   setupAnimation();
 });
 
-// const progressBar = document.getElementById("progress-bar");
+const progressBar = document.getElementById("progress-bar");
 
-// LoadingManager.onProgress = function (url, loaded, total) {
-//   progressBar.value = (loaded / total) * 100;
-// };
+LoadingManager.onProgress = function (url, loaded, total) {
+  progressBar.value = (loaded / total) * 100;
+};
 
-// const progressBarContainer = document.querySelector(".progress-bar-container");
+const progressBarContainer = document.querySelector(".progress-bar-container");
 
-// LoadingManager.onLoad = function () {
-//   progressBarContainer.style.display = "none";
-// };
+LoadingManager.onLoad = function () {
+  progressBarContainer.style.display = "none";
+};
 
 const gltfLoader = new GLTFLoader(LoadingManager);
 
